@@ -2,7 +2,7 @@ import program from 'commander';
 import pkg from './../package.json';
 import pify from 'pify';
 import {copy} from 'copy-paste';
-import {getByName, getByFile} from './';
+import {getByName, getByFile, getByUrl} from './';
 
 const handleOutput = result => {
   console.log(program.json ? JSON.stringify(result) : result.join('\n\r'));
@@ -14,6 +14,7 @@ program.version(pkg.version)
   .description('Get the dependencies of a package.json')
   .usage('[options] [path]')
   .option('-m, --module <name>', 'Get the package.json of a npm module')
+  .option('-u, --url <url>', 'Get the package.json from a url')
   .option('-j, --json', 'Print the dependencies as a JSON')
   .option('-c, --copy', 'Copy the dependencies to the clipboard');
 
@@ -23,6 +24,12 @@ module.exports = argv => {
 
   if (program.module) {
     return getByName(program.module)
+      .then(handleOutput)
+      .catch(err => console.error('Could not retrieve the requested package.json file', err));
+  }
+
+  if (program.url) {
+    return getByUrl(program.url)
       .then(handleOutput)
       .catch(err => console.error('Could not retrieve the requested package.json file', err));
   }

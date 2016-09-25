@@ -23,6 +23,7 @@ Usage: get-dependencies [options] [path]
     -h, --help           output usage information
     -V, --version        output the version number
     -m, --module <name>  Get the package.json of a npm module
+    -u, --url <url>      Get the package.json from a url
     -j, --json           Print the dependencies as a JSON
     -c, --copy           Copy the dependencies to the clipboard
 
@@ -38,6 +39,11 @@ getDeps.getByFile('/path/package.json')
   });
   
 getDeps.getByName('package-name')
+  .then(function (result) {
+    // result is an array of dependencies of the npm package
+  });
+  
+getDeps.getByUrl('http://url.to/package.json')
   .then(function (result) {
     // result is an array of dependencies of the npm package
   });
