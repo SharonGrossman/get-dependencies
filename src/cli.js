@@ -5,9 +5,11 @@ import {copy} from 'copy-paste';
 import {getByName, getByFile, getByUrl} from './';
 
 const handleOutput = result => {
-  console.log(program.json ? JSON.stringify(result) : result.join('\n\r'));
+  const message = program.json ? JSON.stringify(result) : result.join('\n\r');
 
-  return program.copy ? pify(copy)(result) : Promise.resolve();
+  console.log(message);
+
+  return program.copy ? pify(copy)(message) : Promise.resolve();
 };
 
 program.version(pkg.version)
