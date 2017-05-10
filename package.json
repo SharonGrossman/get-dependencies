@@ -1,6 +1,6 @@
 {
   "name": "get-dependencies",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A simple way to get the dependencies of a package.json",
   "main": "lib/index.js",
   "bin": {
