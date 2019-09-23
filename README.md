@@ -1,5 +1,7 @@
 # get-dependencies ![BuildStatus](https://travis-ci.org/SharonGrossman/get-dependencies.svg?branch=master) ![BuildStatus](https://ci.appveyor.com/api/projects/status/xgt19hyn77a8wcgy?svg=true)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/SharonGrossman/get-dependencies.svg)](https://greenkeeper.io/)
+
 ## Install
 as a CLI tool
 ```
